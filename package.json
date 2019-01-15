@@ -1,6 +1,6 @@
 {
   "name": "ultimate-brain-games",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "ultimate brain game",
   "main": "brain-games.js",
   "bin": {
@@ -21,6 +21,9 @@
     "@babel/core": "^7.0.0",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "readline-sync": "^1.4.9"
+  },
+  "dependencies": {
     "readline-sync": "^1.4.9"
   }
 }
