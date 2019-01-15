@@ -1,0 +1,11 @@
+{
+  "name": "brain-games",
+  "version": "1.0.0",
+  "description": "ultimate brain game",
+  "main": "brain-games.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anton Samoshin",
+  "license": "ISC"
+}
