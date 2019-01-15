@@ -1,6 +1,6 @@
 {
   "name": "ultimate-brain-games",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ultimate brain game",
   "main": "brain-games.js",
   "bin": {
