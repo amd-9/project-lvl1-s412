@@ -1,9 +1,10 @@
 {
   "name": "ultimate-brain-games",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "description": "ultimate brain game",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
     "dist"
@@ -32,6 +33,7 @@
     "eslint-plugin-import": "^2.14.0"
   },
   "dependencies": {
+    "random-number": "0.0.9",
     "readline-sync": "^1.4.9"
   }
 }
