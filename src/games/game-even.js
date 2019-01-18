@@ -1,34 +1,24 @@
 import readlineSync from 'readline-sync';
-import rn from 'random-number';
 import {
   askPlayerName,
-  greetPlayer,
   isEven,
   congratulatePlayer,
+  generateNumber,
 } from '..';
 
 const MAX_WIN_COUNT = 3;
+const MIN_NUMBER = 1;
+const MAX_NUMBER = 100;
 
 const getCorrectAnswer = number => (isEven(number) ? 'yes' : 'no');
 
 const checkAnswerIsCorrect = (number, answer) => (answer === getCorrectAnswer(number));
 
-const generateNumberForQuestion = () => {
-  const numberGenerator = rn.generator({
-    min: 1,
-    max: 100,
-    integer: true,
-  });
-
-  return numberGenerator();
-};
-
 export const startGame = () => {
-  greetPlayer();
   const userName = askPlayerName();
 
   for (let winCount = 0; winCount < MAX_WIN_COUNT;) {
-    const numberToGuess = generateNumberForQuestion();
+    const numberToGuess = generateNumber(MIN_NUMBER, MAX_NUMBER);
     console.log(`Question: ${numberToGuess}`);
     const answer = readlineSync.question('Your answer: ');
     const answerIsCorret = checkAnswerIsCorrect(numberToGuess, answer);
@@ -44,6 +34,6 @@ export const startGame = () => {
   congratulatePlayer(userName);
 };
 
-export const getGameRules = () => console.log('Answer "yes" if number even otherwise answer "no".');
+export const getGameRules = () => console.log('Answer "yes" if number even otherwise answer "no".\n');
 
 export default startGame;
