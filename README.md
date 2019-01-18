@@ -6,4 +6,8 @@
 
 [![Build Status](https://travis-ci.org/amd-9/project-lvl1-s412.svg?branch=master)](https://travis-ci.org/amd-9/project-lvl1-s412)
 
+##brain-even
 [![asciicast](https://asciinema.org/a/0ctahmQ4XELSNbdhCUA3zJ3y4.svg)](https://asciinema.org/a/0ctahmQ4XELSNbdhCUA3zJ3y4)
+
+##brain-calc
+[![asciicast](https://asciinema.org/a/2VNF7nF0eYfsjtM3sEXt9dF6t.svg)](https://asciinema.org/a/2VNF7nF0eYfsjtM3sEXt9dF6t)
