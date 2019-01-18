@@ -1,11 +1,12 @@
 {
   "name": "ultimate-brain-games",
-  "version": "0.2.7",
+  "version": "0.2.9",
   "description": "ultimate brain game",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
-    "brain-calc": "dist/bin/brain-calc.js"
+    "brain-calc": "dist/bin/brain-calc.js",
+    "brain-gcd": "dist/bin/brain-gcd.js"
   },
   "files": [
     "dist"
@@ -34,6 +35,7 @@
     "eslint-plugin-import": "^2.14.0"
   },
   "dependencies": {
+    "gcd": "0.0.1",
     "random-number": "0.0.9",
     "readline-sync": "^1.4.9"
   }
