@@ -41,4 +41,13 @@ export const isCorrectAnswer = (userAnswer, correctAnswer) => {
 
   return isCorrect;
 };
+
+export const reduceArray = (func, acc, array) => {
+  if (array.length === 0) {
+    return acc;
+  }
+
+  return reduceArray(func, func(array.pop(), acc), array);
+};
+
 export default greetPlayer;

@@ -37,6 +37,7 @@
   "dependencies": {
     "gcd": "0.0.1",
     "random-number": "0.0.9",
+    "range-inclusive": "^1.0.2",
     "readline-sync": "^1.4.9"
   }
 }
