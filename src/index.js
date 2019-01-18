@@ -25,4 +25,20 @@ export const generateNumber = (minValue, maxValue) => {
   return numberGenerator();
 };
 
+export const askQuestion = (questionText) => {
+  console.log(`Question: ${questionText}`);
+  return readlineSync.question('Your answer: ');
+};
+
+export const isCorrectAnswer = (userAnswer, correctAnswer) => {
+  const isCorrect = userAnswer === correctAnswer;
+
+  if (isCorrect) {
+    console.log('Correct!');
+  } else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  }
+
+  return isCorrect;
+};
 export default greetPlayer;

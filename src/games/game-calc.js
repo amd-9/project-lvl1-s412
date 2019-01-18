@@ -1,9 +1,9 @@
-import readlineSync from 'readline-sync';
 import {
-  askPlayerName,
-  congratulatePlayer,
+  askQuestion,
   generateNumber,
+  isCorrectAnswer,
 } from '..';
+import runGame from '../game-engine';
 
 const MAX_WIN_COUNT = 3;
 const MIN_NUMBER = 1;
@@ -19,28 +19,24 @@ const mathOperations = [
   { symbol: '-', execute: substract },
 ];
 
-export const startGame = () => {
-  const userName = askPlayerName();
-
+const startGame = (userName) => {
   for (let winCount = 0; winCount < MAX_WIN_COUNT;) {
     const number1 = generateNumber(MIN_NUMBER, MAX_NUMBER);
     const number2 = generateNumber(MIN_NUMBER, MAX_NUMBER);
     const mathOperation = mathOperations[generateNumber(0, mathOperations.length - 1)];
-    console.log(`Question: ${number1} ${mathOperation.symbol} ${number2}`);
-    const answer = readlineSync.question('Your answer: ');
+    const answer = askQuestion(`${number1} ${mathOperation.symbol} ${number2}`);
     const correctAnswer = mathOperation.execute(number1, number2);
 
-    if (answer === String(correctAnswer)) {
-      console.log('Correct!');
+    if (isCorrectAnswer(answer, String(correctAnswer))) {
       winCount += 1;
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+      console.log(`'Let's try again, ${userName}!'`);
     }
   }
-
-  congratulatePlayer(userName);
 };
 
-export const getGameRules = () => console.log('What is the result of the expression?\n');
+const getGameRules = () => console.log('What is the result of the expression?\n');
 
-export default startGame;
+export const game = () => runGame(startGame, getGameRules);
+
+export default game;
