@@ -1,5 +1,4 @@
 import {
-  isEven,
   generateNumber,
 } from '..';
 import runGame from '../game-engine';
@@ -7,14 +6,15 @@ import runGame from '../game-engine';
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 100;
 
-const startGameStage = () => generateNumber(MIN_NUMBER, MAX_NUMBER);
+const isEven = number => number % 2 === 0;
 
-const getGameAnswer = stageParams => (isEven(stageParams) ? 'yes' : 'no');
+const startGameStage = () => {
+  const number = generateNumber(MIN_NUMBER, MAX_NUMBER);
+  return { question: number, answer: isEven(number) ? 'yes' : 'no' };
+};
 
-const getGameQuestion = stageParams => stageParams;
+const rules = 'Answer "yes" if number even otherwise answer "no".\n';
 
-const getGameRules = () => console.log('Answer "yes" if number even otherwise answer "no".\n');
-
-export const game = () => runGame(startGameStage, getGameRules, getGameQuestion, getGameAnswer);
+export const game = () => runGame(startGameStage, rules);
 
 export default game;

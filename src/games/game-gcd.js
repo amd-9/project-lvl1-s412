@@ -14,12 +14,8 @@ const startGameStage = () => {
   return { question: `${number1} ${number2}`, answer: String(gcd(number1, number2)) };
 };
 
-const getGameAnswer = stageParams => stageParams.answer;
+const rules = 'Find the greatest common divisor of given numbers.\n';
 
-const getGameQuestion = stageParams => stageParams.question;
-
-const getGameRules = () => console.log('Find the greatest common divisor of given numbers.\n');
-
-export const game = () => runGame(startGameStage, getGameRules, getGameQuestion, getGameAnswer);
+export const game = () => runGame(startGameStage, rules);
 
 export default game;

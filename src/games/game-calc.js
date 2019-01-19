@@ -24,12 +24,8 @@ const startGameStage = () => {
   return { question: `${number1} ${mathOperation.symbol} ${number2}`, answer: String(mathOperation.execute(number1, number2)) };
 };
 
-const getGameAnswer = stageParams => stageParams.answer;
+const rules = 'What is the result of the expression?\n';
 
-const getGameQuestion = stageParams => stageParams.question;
-
-const getGameRules = () => console.log('What is the result of the expression?\n');
-
-export const game = () => runGame(startGameStage, getGameRules, getGameQuestion, getGameAnswer);
+export const game = () => runGame(startGameStage, rules);
 
 export default game;

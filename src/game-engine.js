@@ -1,25 +1,38 @@
-import {
-  greetPlayer,
-  askPlayerName,
-  congratulatePlayer,
-  askQuestion,
-  isCorrectAnswer,
-} from '.';
+
+import readlineSync from 'readline-sync';
 
 const MAX_WIN_COUNT = 3;
 
-const runGame = (stage, rules, question, answer) => {
+export const greetPlayer = () => console.log('Welcome to the Brain Games!');
+
+const askPlayerName = () => {
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!\n`);
+  return userName;
+};
+
+const congratulatePlayer = (userName) => {
+  console.log(`Congratulations, ${userName}!`);
+};
+
+const askQuestion = (questionText) => {
+  console.log(`Question: ${questionText}`);
+  return readlineSync.question('Your answer: ');
+};
+
+const runGame = (stage, rules) => {
   greetPlayer();
-  rules();
+  console.log(rules);
   const userName = askPlayerName();
 
   for (let winCount = 0; winCount < MAX_WIN_COUNT;) {
-    const stageParametes = stage();
-    const userAnswer = askQuestion(question(stageParametes));
-    if (isCorrectAnswer(userAnswer, answer(stageParametes))) {
+    const stageParameters = stage();
+    const userAnswer = askQuestion(stageParameters.question);
+    if (userAnswer === stageParameters.answer) {
       winCount += 1;
+      console.log('Correct!');
     } else {
-      console.log(`Let's try again, ${userName}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${stageParameters.answer}'.\nLet's try again, ${userName}!`);
     }
   }
 

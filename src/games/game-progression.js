@@ -1,6 +1,5 @@
 import {
   generateNumber,
-  reduceArray,
 } from '..';
 import rangeInclusive from 'range-inclusive';
 import runGame from '../game-engine';
@@ -10,6 +9,14 @@ const MAX_NUMBER = 100;
 const RANGE_MIN_STEP = 1;
 const RANGE_MAX_STEP = 15;
 const RANGE_SIZE = 10;
+
+const reduceArray = (func, acc, array) => {
+  if (array.length === 0) {
+    return acc;
+  }
+
+  return reduceArray(func, func(array.shift(), acc), array);
+};
 
 const getRangeQuestion = (range, numberToGuess) => {
   const func = (element, acc) => (element === numberToGuess ? `${acc} ..` : `${acc} ${element}`);
@@ -25,12 +32,9 @@ const startGameStage = () => {
 
   return { question: getRangeQuestion(numberRange, numberToGuess), answer: String(numberToGuess) };
 };
-const getGameAnswer = stageParams => stageParams.answer;
 
-const getGameQuestion = stageParams => stageParams.question;
+const rules = 'What number is missing in the progression?\n';
 
-const getGameRules = () => console.log('What number is missing in the progression?\n');
-
-export const game = () => runGame(startGameStage, getGameRules, getGameQuestion, getGameAnswer);
+export const game = () => runGame(startGameStage, rules);
 
 export default game;
