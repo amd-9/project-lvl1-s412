@@ -47,7 +47,7 @@ export const reduceArray = (func, acc, array) => {
     return acc;
   }
 
-  return reduceArray(func, func(array.pop(), acc), array);
+  return reduceArray(func, func(array.shift(), acc), array);
 };
 
 export default greetPlayer;

@@ -30,7 +30,7 @@ const startGame = (userName) => {
     if (isCorrectAnswer(answer, String(correctAnswer))) {
       winCount += 1;
     } else {
-      console.log(`'Let's try again, ${userName}!'`);
+      console.log(`Let's try again, ${userName}!'`);
     }
   }
 };
