@@ -1,11 +1,8 @@
 import {
-  askQuestion,
   generateNumber,
-  isCorrectAnswer,
 } from '..';
 import runGame from '../game-engine';
 
-const MAX_WIN_COUNT = 3;
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 100;
 
@@ -19,24 +16,20 @@ const mathOperations = [
   { symbol: '-', execute: substract },
 ];
 
-const startGame = (userName) => {
-  for (let winCount = 0; winCount < MAX_WIN_COUNT;) {
-    const number1 = generateNumber(MIN_NUMBER, MAX_NUMBER);
-    const number2 = generateNumber(MIN_NUMBER, MAX_NUMBER);
-    const mathOperation = mathOperations[generateNumber(0, mathOperations.length - 1)];
-    const answer = askQuestion(`${number1} ${mathOperation.symbol} ${number2}`);
-    const correctAnswer = mathOperation.execute(number1, number2);
+const startGameStage = () => {
+  const number1 = generateNumber(MIN_NUMBER, MAX_NUMBER);
+  const number2 = generateNumber(MIN_NUMBER, MAX_NUMBER);
+  const mathOperation = mathOperations[generateNumber(0, mathOperations.length - 1)];
 
-    if (isCorrectAnswer(answer, String(correctAnswer))) {
-      winCount += 1;
-    } else {
-      console.log(`Let's try again, ${userName}!'`);
-    }
-  }
+  return { question: `${number1} ${mathOperation.symbol} ${number2}`, answer: String(mathOperation.execute(number1, number2)) };
 };
+
+const getGameAnswer = stageParams => stageParams.answer;
+
+const getGameQuestion = stageParams => stageParams.question;
 
 const getGameRules = () => console.log('What is the result of the expression?\n');
 
-export const game = () => runGame(startGame, getGameRules);
+export const game = () => runGame(startGameStage, getGameRules, getGameQuestion, getGameAnswer);
 
 export default game;

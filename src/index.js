@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import rn from 'random-number';
 
-export const greetPlayer = () => console.log('Welcome to the Brain Games');
+export const greetPlayer = () => console.log('Welcome to the Brain Games!');
 
 export const askPlayerName = () => {
   const userName = readlineSync.question('May I have your name? ');

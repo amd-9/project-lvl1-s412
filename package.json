@@ -1,6 +1,6 @@
 {
   "name": "ultimate-brain-games",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "ultimate brain game",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
