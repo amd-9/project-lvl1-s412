@@ -18,7 +18,8 @@ const reduceArray = (func, acc, array) => {
 
 const getRangeQuestion = (range, numberToGuess) => {
   const func = (element, acc) => (element === numberToGuess ? `${acc} ..` : `${acc} ${element}`);
-  return reduceArray(func, '', range);
+  const rangeQuestion = reduceArray(func, '', range);
+  return rangeQuestion.trim();
 };
 
 const startGameStage = () => {
