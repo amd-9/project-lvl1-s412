@@ -1,6 +1,4 @@
-import {
-  generateNumber,
-} from '..';
+import { generateNumber } from '..';
 import rangeInclusive from 'range-inclusive';
 import runGame from '../game-engine';
 
@@ -29,12 +27,14 @@ const startGameStage = () => {
   const rangeEnd = (RANGE_SIZE - 1) * rangeStep + rangeSeed;
   const numberRange = rangeInclusive(rangeSeed, rangeEnd, rangeStep);
   const numberToGuess = numberRange[generateNumber(0, RANGE_SIZE - 1)];
+  const question = getRangeQuestion(numberRange, numberToGuess);
+  const answer = String(numberToGuess);
 
-  return { question: getRangeQuestion(numberRange, numberToGuess), answer: String(numberToGuess) };
+  return { question, answer };
 };
 
-const rules = 'What number is missing in the progression?\n';
+const description = 'What number is missing in the progression?';
 
-export const game = () => runGame(startGameStage, rules);
+export const game = () => runGame(startGameStage, description);
 
 export default game;

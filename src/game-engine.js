@@ -20,9 +20,9 @@ const askQuestion = (questionText) => {
   return readlineSync.question('Your answer: ');
 };
 
-const runGame = (stage, rules) => {
+const runGame = (stage, description) => {
   greetPlayer();
-  console.log(rules);
+  console.log(`${description}\n`);
   const userName = askPlayerName();
 
   for (let winCount = 0; winCount < MAX_WIN_COUNT;) {
