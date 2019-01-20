@@ -1,6 +1,6 @@
 {
   "name": "ultimate-brain-games",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "ultimate brain game",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "gcd": "0.0.1",
+    "npm": "^6.6.0",
     "random-number": "0.0.9",
     "range-inclusive": "^1.0.2",
     "readline-sync": "^1.4.9"

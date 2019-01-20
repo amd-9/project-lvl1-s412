@@ -1,12 +1,12 @@
-import { generateNumber } from '..';
 import rangeInclusive from 'range-inclusive';
 import runGame from '../game-engine';
+import generateNumber from '../utils';
 
-const MIN_NUMBER = 1;
-const MAX_NUMBER = 100;
-const RANGE_MIN_STEP = 1;
-const RANGE_MAX_STEP = 15;
-const RANGE_SIZE = 10;
+const minNumber = 1;
+const maxNumber = 100;
+const rangeMinStep = 1;
+const rangeMaxStep = 15;
+const rangeSize = 10;
 
 const reduceArray = (func, acc, array) => {
   if (array.length === 0) {
@@ -22,11 +22,11 @@ const getRangeQuestion = (range, numberToGuess) => {
 };
 
 const startGameStage = () => {
-  const rangeSeed = generateNumber(MIN_NUMBER, MAX_NUMBER);
-  const rangeStep = generateNumber(RANGE_MIN_STEP, RANGE_MAX_STEP);
-  const rangeEnd = (RANGE_SIZE - 1) * rangeStep + rangeSeed;
+  const rangeSeed = generateNumber(minNumber, maxNumber);
+  const rangeStep = generateNumber(rangeMinStep, rangeMaxStep);
+  const rangeEnd = (rangeSize - 1) * rangeStep + rangeSeed;
   const numberRange = rangeInclusive(rangeSeed, rangeEnd, rangeStep);
-  const numberToGuess = numberRange[generateNumber(0, RANGE_SIZE - 1)];
+  const numberToGuess = numberRange[generateNumber(0, rangeSize - 1)];
   const question = getRangeQuestion(numberRange, numberToGuess);
   const answer = String(numberToGuess);
 
@@ -35,6 +35,6 @@ const startGameStage = () => {
 
 const description = 'What number is missing in the progression?';
 
-export const game = () => runGame(startGameStage, description);
+const game = () => runGame(startGameStage, description);
 
 export default game;
